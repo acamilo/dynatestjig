@@ -1,3 +1,5 @@
+#!/usr/bin/python3y
+
 import gi
 
 gi.require_version("Gtk", "3.0")
