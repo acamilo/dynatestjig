@@ -28,8 +28,10 @@ class DynTestApp:
 
         self.assign_right_button = self.builder.get_object("motor-assign-right-button")
         self.assign_right_button.connect("clicked", self.assign_right_button_clicked)
-
+        self.window.set_default_size(240, 320)
         self.window.show()
+        self.window.fullscreen()
+
 
     def assign_motor_clicked(self,widget):
         print("assign Click")
