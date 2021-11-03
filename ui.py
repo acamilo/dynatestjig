@@ -3,29 +3,54 @@ import gi
 gi.require_version("Gtk", "3.0")
 from gi.repository import Gtk
 
+class DynTestApp:
+    def assign_motor_clicked(self,widget):
+        print("Click")
 
-class MyWindow(Gtk.Window):
     def __init__(self):
-        super().__init__(title="Hello World")
-        self.set_default_size(240, 320)
+        self.gladefile = "ui.glade"
+        self.builder = Gtk.Builder()
+        self.builder.add_from_file(self.gladefile)
+        self.builder.connect_signals(self)
+        self.window = self.builder.get_object("dyn-tester")
+        self.stack = self.builder.get_object("dyn-stack")
 
-        button_id_prog_right = Gtk.Button(label="Program ID Right",expand=True)
-        button_id_prog_left = Gtk.Button(label="Program ID Left",expand=True)
-        button_id_test_right = Gtk.Button(label="Test Motor Right",expand=True)
-        button_id_test_left = Gtk.Button(label="Test Motor Left",expand=True)
-        
-        grid = Gtk.Grid()
-        grid.add(button_id_prog_right)
-        grid.attach_next_to(button_id_prog_left,button_id_prog_right,Gtk.PositionType.BOTTOM,1,1)
-        grid.attach_next_to(button_id_test_right,button_id_prog_left,Gtk.PositionType.BOTTOM,1,1)
-        grid.attach_next_to(button_id_test_left,button_id_test_right,Gtk.PositionType.BOTTOM,1,1)
-        self.add(grid)
-    def on_button_clicked(self, widget):
-        print("Hello World")
+        # main menu bottons
+        self.button_assign = self.builder.get_object("assign-motor")
+        self.button_assign.connect("clicked", self.assign_motor_clicked)
+
+        self.button_test = self.builder.get_object("test-motor")
+        self.button_test.connect("clicked", self.test_motor_clicked)
+
+        # ID Assign selection buttons
+        self.assign_left_button = self.builder.get_object("motor-assign-left-button")
+        self.assign_left_button.connect("clicked", self.assign_left_button_clicked)
+
+        self.assign_right_button = self.builder.get_object("motor-assign-right-button")
+        self.assign_right_button.connect("clicked", self.assign_right_button_clicked)
+
+        self.window.show()
+
+    def assign_motor_clicked(self,widget):
+        print("assign Click")
+        self.stack.set_visible_child_name("motor-assign-right-left-menu")
+
+    def test_motor_clicked(self,widget):
+        print("test Click")
+
+    def assign_left_button_clicked(self,widget):
+        print("Assign Left")
+
+    def assign_right_button_clicked(self,widget):
+        print("Assign Right")
 
 
-win = MyWindow()
-win.fullscreen()
-win.connect("destroy", Gtk.main_quit)
-win.show_all()
-Gtk.main()
+    def on_destroy(self, widget):
+        print("Destroyed!")
+        gtk.main_quit()
+    def on_clicked(self, widget):
+        print(widget)
+
+if __name__ == "__main__":
+    main = DynTestApp()
+    Gtk.main()
