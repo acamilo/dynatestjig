@@ -38,7 +38,7 @@ select a new root password.
 navigate to (1) System Options -> (S7) Splash Screen.
 Set it to Yes, splash screen on boot.
 
-### Setting up NTP
+### Setting up NTP and dependancies
 run `sudo nano /etc/systemd/timesyncd.conf` to edit the file
 navigate to a line that begins with `#FallbackNTP=`
 under it type
@@ -49,7 +49,7 @@ run `sudo timedatectl set-ntp true`
 reboot the pi by running `sudo reboot`
 
 log back in and make sure time and date is correct by rinning `date`
-then, finally, run `sudo apt-get update`
+then, run `sudo apt-get update` and finally `sudo apt-get install git`
   
 ### Setting up auto-launch of Python testing app.
 run `sudo apt-get install --no-install-recommends xserver-xorg x11-xserver-utils xinit openbox`
