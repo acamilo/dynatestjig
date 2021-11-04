@@ -65,7 +65,7 @@ xset s off            # turn off screen saver
 clone the script
 `cd ~/`
 `git clone https://github.com/acamilo/dynatestjig.git`
-`
+  run `cd ~/dynatestjig/` and run `chmod a+x launch.sh ui.py `
 run `touch ~/.bash_profile`
 edit `sudo nano ~/.bash_profile`
 
