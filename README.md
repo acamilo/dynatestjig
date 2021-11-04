@@ -53,6 +53,8 @@ then, run `sudo apt-get update` and finally `sudo apt-get install git`
   
 ### Setting up auto-launch of Python testing app.
 run `sudo apt-get install --no-install-recommends xserver-xorg x11-xserver-utils xinit openbox`
+run `sudo apt-get install libgtk-3-dev`
+run `sudo apt install python3-gi gobject-introspection gir1.2-gtk-3.0`
 edit `sudo nano /etc/xdg/openbox/autostart`
 add the following to the bottom
 ```
