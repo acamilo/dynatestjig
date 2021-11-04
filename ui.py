@@ -1,4 +1,4 @@
-#!/usr/bin/python3y
+#!/usr/bin/python3
 
 import gi
 
