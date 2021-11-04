@@ -49,7 +49,8 @@ run `sudo timedatectl set-ntp true`
 reboot the pi by running `sudo reboot`
 
 log back in and make sure time and date is correct by rinning `date`
-
+then, finally, run `sudo apt-get update`
+  
 ### Setting up auto-launch of Python testing app.
 run `sudo apt-get install --no-install-recommends xserver-xorg x11-xserver-utils xinit openbox`
 edit `sudo nano /etc/xdg/openbox/autostart`
