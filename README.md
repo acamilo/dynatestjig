@@ -51,7 +51,22 @@ The PI will reboot again and the display will be correctly oriented.
 
 Note: instructions come from http://www.lcdwiki.com/3.5inch_RPi_Display
 
-### Setting up auto-launch of oython testing app.
+### Setting up auto-launch of Python testing app.
+
+run `sudo raspi-config`
+Select (1) System Options (S5) Boot / Auto Login (B2) Console Autologin
+Finish and reboot.
+run `sudo ./LCD35-show 90` and let pi reboot
+run `sudo apt-get install --no-install-recommends xserver-xorg x11-xserver-utils xinit openbox`
+edit `sudo nano /etc/xdg/openbox/autostart`
+add the following to the bottom
+```
+xset -dpms            # turn off display power management system
+xset s noblank        # turn off screen blanking
+xset s off            # turn off screen saver
+```
+
+
 
 
 
