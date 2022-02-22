@@ -27,6 +27,12 @@
     <property name="can_focus">False</property>
     <property name="pixbuf">right.png</property>
   </object>
+  <object class="GtkImage" id="assign-wait">
+    <property name="name">assign-wait</property>
+    <property name="visible">True</property>
+    <property name="can_focus">False</property>
+    <property name="pixbuf">assign-wait.png</property>
+  </object>
   <object class="GtkImage" id="error-motor-test-image">
     <property name="name">error-motor-test-image</property>
     <property name="visible">True</property>
@@ -267,6 +273,20 @@
             <property name="name">error-motor-test</property>
             <property name="title" translatable="yes">page0</property>
             <property name="position">7</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkButton" id="assign-wait-menu">
+            <property name="name">assign-wait-menu</property>
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+            <property name="receives_default">True</property>
+            <property name="image">assign-wait</property>
+          </object>
+          <packing>
+            <property name="name">assign-wait-menu</property>
+            <property name="title" translatable="yes">page0</property>
+            <property name="position">8</property>
           </packing>
         </child>
       </object>
