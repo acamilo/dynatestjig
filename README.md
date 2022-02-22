@@ -61,7 +61,7 @@ add the following to the bottom
 xset -dpms            # turn off display power management system
 xset s noblank        # turn off screen blanking
 xset s off            # turn off screen saver
-/home/pi/dynatestjig/launch.sh
+/usr/bin/bash /home/pi/dynatestjig/launch.sh &
 ```
 
 clone the script
