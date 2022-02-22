@@ -116,7 +116,11 @@ class DynTestApp:
             self.ser.write(b'3')
 
         self.ser.flush()
-        self.stack.set_visible_child_name("testing-motor-menu")
+        response = ser.read(100)
+        if b'not found' in response:
+            self.stack.set_visible_child_name("assign-fail-menu")
+        else:
+            self.stack.set_visible_child_name("testing-motor-menu")
     
     def stop_motor_test(self,widget):
         self.ser.write(b'\r')
