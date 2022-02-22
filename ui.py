@@ -60,12 +60,14 @@ class DynTestApp:
             ser.write(b'\r')
             ser.flush()
             response = ser.read(100)
-            print(response)
-            if response == b'1. setup left  motor\r\n2. setup right motor\r\n3. test  left  motor\r\n4. test  right motor\r\n>>  \r\n \r\n1. ':
+
+            if 'right motor' in response
                 print("Programmer OK")
             else:
+                print("Programmer returned bad data")               
                 self.stack.set_visible_child_name("error-menu-serial")
         except (serial.SerialException,serial.SerialTimeoutException):
+            print("Serial exception or timeout") 
             self.stack.set_visible_child_name("error-menu-serial")
 
         #self.window.fullscreen()
