@@ -104,11 +104,25 @@ class DynTestApp:
 
 
     def assign_motor(self,id):
+        self.stack.set_visible_child_name("assign-wait-menu") 
         print("Assigning ID: %s to motor"%(str(id)))
-        if True:
-           self.stack.set_visible_child_name("assign-ok-menu") 
+        if id==2:
+            self.ser.write(b'2')
+            self.ser.flush()
+            self.ser.write(b'y')
+            self.ser.flush()
+        elif id==1"
+            self.ser.write(b'1')
+            self.ser.flush()
+            self.ser.write(b'y')
+            self.ser.flush()
+        time.sleep(10)
+        response = self.ser.read(200)
+        
+        if b'There is no status packet' in response:
+           self.stack.set_visible_child_name("assign-fail-menu") 
         else:
-           self.stack.set_visible_child_name("assign-fail-menu")
+           self.stack.set_visible_child_name("assign-ok-menu")
 
     def test_motor(self,id):
         print("Testing Motor ID: %s"%(str(id)))
