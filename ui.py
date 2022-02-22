@@ -116,7 +116,7 @@ class DynTestApp:
             self.ser.write(b'3')
 
         self.ser.flush()
-        response = ser.read(100)
+        response = self.ser.read(100)
         if b'not found' in response:
             self.stack.set_visible_child_name("assign-fail-menu")
         else:
