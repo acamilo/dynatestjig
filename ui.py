@@ -56,6 +56,7 @@ class DynTestApp:
         # send a return to get the menu
         try:
             ser = serial.Serial("/dev/ttyACM0")
+            ser.timeout = 1.0
             ser.write(b'\r')
             ser.flush()
             response = ser.read(100)
