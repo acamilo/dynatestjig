@@ -111,7 +111,7 @@ class DynTestApp:
             self.ser.flush()
             self.ser.write(b'y')
             self.ser.flush()
-        elif id==1"
+        elif id==1:
             self.ser.write(b'1')
             self.ser.flush()
             self.ser.write(b'y')
