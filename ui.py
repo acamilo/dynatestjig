@@ -42,6 +42,8 @@ class DynTestApp:
         self.test_right_button.connect("clicked", self.test_right_button_clicked)
 
         # Return to menu buttons
+        self.test_fail_menu = self.builder.get_object("error-motor-test")
+        self.test_fail_menu.connect("clicked", self.return_to_main_menu)
         self.assign_ok_menu = self.builder.get_object("assign-ok-menu")
         self.assign_ok_menu.connect("clicked", self.return_to_main_menu)
         self.assign_fail_menu = self.builder.get_object("assign-fail-menu")
@@ -118,7 +120,7 @@ class DynTestApp:
         self.ser.flush()
         response = self.ser.read(100)
         if b'not found' in response:
-            self.stack.set_visible_child_name("assign-fail-menu")
+            self.stack.set_visible_child_name("error-motor-test")
         else:
             self.stack.set_visible_child_name("testing-motor-menu")
     

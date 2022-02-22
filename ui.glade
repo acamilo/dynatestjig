@@ -27,6 +27,12 @@
     <property name="can_focus">False</property>
     <property name="pixbuf">right.png</property>
   </object>
+  <object class="GtkImage" id="error-motor-test-image">
+    <property name="name">error-motor-test-image</property>
+    <property name="visible">True</property>
+    <property name="can_focus">False</property>
+    <property name="stock">gtk-missing-image</property>
+  </object>
   <object class="GtkImage" id="leftright-option">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
@@ -246,6 +252,21 @@
             <property name="name">error-menu-serial</property>
             <property name="title" translatable="yes">page0</property>
             <property name="position">6</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkButton" id="error-motor-test">
+            <property name="label" translatable="yes">button</property>
+            <property name="name">error-motor-test</property>
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+            <property name="receives_default">True</property>
+            <property name="image">error-motor-test-image</property>
+          </object>
+          <packing>
+            <property name="name">error-motor-test</property>
+            <property name="title" translatable="yes">page0</property>
+            <property name="position">7</property>
           </packing>
         </child>
       </object>
