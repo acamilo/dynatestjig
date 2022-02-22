@@ -61,7 +61,7 @@ class DynTestApp:
             ser.flush()
             response = ser.read(100)
 
-            if 'right motor' in response:
+            if b'right motor' in response:
                 print("Programmer OK")
             else:
                 print("Programmer returned bad data")               
