@@ -110,9 +110,17 @@ class DynTestApp:
 
     def test_motor(self,id):
         print("Testing Motor ID: %s"%(str(id)))
+        if id==2:
+            ser.write(b'4')
+        elif id==1:
+            ser.write(b'3')
+
+        ser.flush()
         self.stack.set_visible_child_name("testing-motor-menu")
     
     def stop_motor_test(self,widget):
+        ser.write(b'\r')
+        ser.flush()
         self.stack.set_visible_child_name("menu-assign-test")
 
     def on_destroy(self, widget):
