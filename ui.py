@@ -55,11 +55,11 @@ class DynTestApp:
         # Connect to the tester
         # send a return to get the menu
         try:
-            ser = serial.Serial("/dev/ttyACM0")
-            ser.timeout = 1.0
-            ser.write(b'\r')
-            ser.flush()
-            response = ser.read(100)
+            self.ser = serial.Serial("/dev/ttyACM0")
+            self.ser.timeout = 1.0
+            self.ser.write(b'\r')
+            self.ser.flush()
+            response = self.ser.read(100)
 
             if b'right motor' in response:
                 print("Programmer OK")
@@ -111,16 +111,16 @@ class DynTestApp:
     def test_motor(self,id):
         print("Testing Motor ID: %s"%(str(id)))
         if id==2:
-            ser.write(b'4')
+            self.ser.write(b'4')
         elif id==1:
-            ser.write(b'3')
+            self.ser.write(b'3')
 
-        ser.flush()
+        self.ser.flush()
         self.stack.set_visible_child_name("testing-motor-menu")
     
     def stop_motor_test(self,widget):
-        ser.write(b'\r')
-        ser.flush()
+        self.ser.write(b'\r')
+        self.ser.flush()
         self.stack.set_visible_child_name("menu-assign-test")
 
     def on_destroy(self, widget):
