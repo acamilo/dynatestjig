@@ -100,8 +100,8 @@
           </packing>
         </child>
         <child>
-          <object class="GtkBox" id="motor-assign-right-left-menu">
-            <property name="name">motor-assign-right-left-menu</property>
+          <object class="GtkBox" id="motor-assign-menu">
+            <property name="name">motor-assign-menu</property>
             <property name="visible">True</property>
             <property name="can_focus">False</property>
             <property name="orientation">vertical</property>
@@ -134,7 +134,7 @@
             </child>
           </object>
           <packing>
-            <property name="name">motor-assign-right-left-menu</property>
+            <property name="name">motor-assign-menu</property>
             <property name="title" translatable="yes">page1</property>
             <property name="position">1</property>
           </packing>
@@ -145,7 +145,6 @@
             <property name="visible">True</property>
             <property name="can_focus">True</property>
             <property name="receives_default">True</property>
-            <property name="action_name">main-menu</property>
             <property name="image">assign-ok-status</property>
             <property name="always_show_image">True</property>
           </object>
@@ -161,7 +160,6 @@
             <property name="visible">True</property>
             <property name="can_focus">True</property>
             <property name="receives_default">True</property>
-            <property name="action_name">main-menu</property>
             <property name="image">assign-fail-status</property>
             <property name="always_show_image">True</property>
           </object>
@@ -172,17 +170,17 @@
           </packing>
         </child>
         <child>
-          <object class="GtkBox" id="test-motor-menu">
-            <property name="name">test-motor-menu</property>
+          <object class="GtkBox" id="motor-test-menu">
+            <property name="name">motor-test-menu</property>
             <property name="visible">True</property>
             <property name="can_focus">False</property>
             <property name="orientation">vertical</property>
             <child>
-              <object class="GtkButton">
+              <object class="GtkButton" id="motor-test-left-button">
+                <property name="name">motor-test-left-button</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
-                <property name="action_name">test-left</property>
                 <property name="image">test-left-option</property>
                 <property name="always_show_image">True</property>
               </object>
@@ -193,11 +191,11 @@
               </packing>
             </child>
             <child>
-              <object class="GtkButton">
+              <object class="GtkButton" id="motor-test-right-button">
+                <property name="name">motor-test-right-button</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
-                <property name="action_name">test-right</property>
                 <property name="image">test-right-option</property>
                 <property name="always_show_image">True</property>
               </object>
@@ -209,7 +207,7 @@
             </child>
           </object>
           <packing>
-            <property name="name">test-motor-menu</property>
+            <property name="name">motor-test-menu</property>
             <property name="title" translatable="yes">page4</property>
             <property name="position">4</property>
           </packing>
@@ -220,7 +218,6 @@
             <property name="visible">True</property>
             <property name="can_focus">True</property>
             <property name="receives_default">True</property>
-            <property name="action_name">main-menu</property>
             <property name="image">testing-motor</property>
             <property name="always_show_image">True</property>
           </object>
