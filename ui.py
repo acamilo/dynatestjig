@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 
 import gi
+import serial
 
 gi.require_version("Gtk", "3.0")
 from gi.repository import Gtk
@@ -10,6 +11,8 @@ class DynTestApp:
         print("Click")
 
     def __init__(self):
+        
+
         self.gladefile = "ui.glade"
         self.builder = Gtk.Builder()
         self.builder.add_from_file(self.gladefile)
@@ -48,6 +51,16 @@ class DynTestApp:
 
         self.window.set_default_size(240, 320)
         self.window.show()
+
+        # Connect to the tester
+        # send a return to get the menu
+        try:
+            ser = serial.Serial("/dev/ttyACM0")
+            ser.write(b'\r')
+            ser.flush()
+        except:
+            self.stack.set_visible_child_name("error-menu-serial")
+
         #self.window.fullscreen()
 
     def return_to_main_menu(self,widget):

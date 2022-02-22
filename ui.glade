@@ -32,6 +32,12 @@
     <property name="can_focus">False</property>
     <property name="pixbuf">left-right.svg</property>
   </object>
+  <object class="GtkImage" id="serial-error-image">
+    <property name="name">serial-error-image</property>
+    <property name="visible">True</property>
+    <property name="can_focus">False</property>
+    <property name="pixbuf">serial-error.png</property>
+  </object>
   <object class="GtkImage" id="test-left-option">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
@@ -225,6 +231,21 @@
             <property name="name">testing-motor-menu</property>
             <property name="title" translatable="yes">page5</property>
             <property name="position">5</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkButton" id="error-menu-serial">
+            <property name="name">error-menu-serial</property>
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+            <property name="receives_default">True</property>
+            <property name="image">serial-error-image</property>
+            <property name="always_show_image">True</property>
+          </object>
+          <packing>
+            <property name="name">error-menu-serial</property>
+            <property name="title" translatable="yes">page0</property>
+            <property name="position">6</property>
           </packing>
         </child>
       </object>
