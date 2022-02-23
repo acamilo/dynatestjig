@@ -105,6 +105,8 @@ class DynTestApp:
 
 
     def assign_motor(self,id):
+        #clear buffer
+        self.ser.read(10000)
         self.stack.set_visible_child_name("assign-wait-menu") 
         print("Assigning ID: %s to motor"%(str(id)))
         if id==2:
@@ -126,6 +128,9 @@ class DynTestApp:
            self.stack.set_visible_child_name("assign-ok-menu")
 
     def test_motor(self,id):
+        #clear buffer
+        self.ser.read(10000)
+
         print("Testing Motor ID: %s"%(str(id)))
         if id==2:
             self.ser.write(b'4')
