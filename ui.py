@@ -90,14 +90,14 @@ class DynTestApp:
         self.stack.set_visible_child_name("motor-test-menu")
 
     def assign_left_button_clicked(self,widget):
-        self.stack.set_visible_child_name("assign-wait-menu") 
         print("Assign Left")
         self.motor_id=1
+        self.stack.set_visible_child_name("assign-wait-menu") 
 
     def assign_right_button_clicked(self,widget):
-        self.stack.set_visible_child_name("assign-wait-menu") 
         print("Assign Right")
         self.motor_id=2
+        self.stack.set_visible_child_name("assign-wait-menu") 
         
 
     def test_left_button_clicked(self,widget):
