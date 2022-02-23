@@ -69,7 +69,8 @@ class DynTestApp:
             self.ser.flush()
             response = self.ser.read(1000)
             print(response)
-
+            if response==b'':
+                response = self.ser.read(1000)
             if b'right motor' in response:
                 print("Programmer OK")
             else:
