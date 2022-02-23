@@ -59,6 +59,7 @@ class DynTestApp:
         self.window.fullscreen()
         # Connect to the tester
         # send a return to get the menu
+        print("Connecting to programmer")
         try:
             self.ser = serial.Serial("/dev/ttyACM0")
             self.ser.timeout = 1.0
@@ -67,6 +68,7 @@ class DynTestApp:
             self.ser.write(b'\r')
             self.ser.flush()
             response = self.ser.read(1000)
+            print(response)
 
             if b'right motor' in response:
                 print("Programmer OK")
