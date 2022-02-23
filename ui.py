@@ -28,6 +28,9 @@ class DynTestApp:
         self.button_test = self.builder.get_object("test-motor")
         self.button_test.connect("clicked", self.test_motor_clicked)
 
+        #stack change callback
+        self.stack.connect("set-focus-child",self.focus_test)
+
         # ID Assign selection buttons
         self.assign_left_button = self.builder.get_object("motor-assign-left-button")
         self.assign_left_button.connect("clicked", self.assign_left_button_clicked)
@@ -154,6 +157,9 @@ class DynTestApp:
         print("Destroyed!")
         gtk.main_quit()
     def on_clicked(self, widget):
+        print(widget)
+
+    def focus_test(self,widget):
         print(widget)
 
 if __name__ == "__main__":
