@@ -56,7 +56,7 @@ class DynTestApp:
 
         self.window.set_default_size(240, 320)
         self.window.show()
-
+        self.window.fullscreen()
         # Connect to the tester
         # send a return to get the menu
         try:
@@ -75,7 +75,7 @@ class DynTestApp:
             print("Serial exception or timeout") 
             self.stack.set_visible_child_name("error-menu-serial")
 
-        #self.window.fullscreen()
+        
 
     def return_to_main_menu(self,widget):
         self.stack.set_visible_child_name("menu-assign-test")
