@@ -87,10 +87,12 @@ class DynTestApp:
         self.stack.set_visible_child_name("motor-test-menu")
 
     def assign_left_button_clicked(self,widget):
+        self.stack.set_visible_child_name("assign-wait-menu") 
         print("Assign Left")
         self.assign_motor(1)
 
     def assign_right_button_clicked(self,widget):
+        self.stack.set_visible_child_name("assign-wait-menu") 
         print("Assign Right")
         self.assign_motor(2)
         
@@ -105,7 +107,6 @@ class DynTestApp:
 
 
     def assign_motor(self,id):
-        self.stack.set_visible_child_name("assign-wait-menu") 
         #clear buffer
         self.ser.read(10000)
 
@@ -122,7 +123,6 @@ class DynTestApp:
             self.ser.flush()
         time.sleep(10)
         response = self.ser.read(1000)
-        print(response)
         if b'ok' in response:
             self.stack.set_visible_child_name("assign-ok-menu")
         else:
