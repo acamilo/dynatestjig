@@ -282,6 +282,7 @@
             <property name="can_focus">True</property>
             <property name="receives_default">True</property>
             <property name="image">assign-wait</property>
+            <property name="always_show_image">True</property>
           </object>
           <packing>
             <property name="name">assign-wait-menu</property>
