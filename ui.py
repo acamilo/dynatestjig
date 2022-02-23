@@ -13,7 +13,7 @@ class DynTestApp:
 
     def __init__(self):
         
-        self.motor_id=0
+
         self.gladefile = "ui.glade"
         self.builder = Gtk.Builder()
         self.builder.add_from_file(self.gladefile)
@@ -28,8 +28,7 @@ class DynTestApp:
         self.button_test = self.builder.get_object("test-motor")
         self.button_test.connect("clicked", self.test_motor_clicked)
 
-        #stack change callback
-        self.stack.connect("set-focus-child",self.stack_callback)
+
 
         # ID Assign selection buttons
         self.assign_left_button = self.builder.get_object("motor-assign-left-button")
@@ -90,14 +89,14 @@ class DynTestApp:
         self.stack.set_visible_child_name("motor-test-menu")
 
     def assign_left_button_clicked(self,widget):
-        print("Assign Left")
-        self.motor_id=1
         self.stack.set_visible_child_name("assign-wait-menu") 
+        print("Assign Left")
+        self.assign_motor(1)
 
     def assign_right_button_clicked(self,widget):
-        print("Assign Right")
-        self.motor_id=2
         self.stack.set_visible_child_name("assign-wait-menu") 
+        print("Assign Right")
+        self.assign_motor(2)
         
 
     def test_left_button_clicked(self,widget):
@@ -159,11 +158,6 @@ class DynTestApp:
     def on_clicked(self, widget):
         print(widget)
 
-    def stack_callback(self,stack,widget):
-        if widget!=None:
-            if widget==self.builder.get_object("assign-wait-menu"):
-                print("Switched to assign wait menu")
-                self.assign_motor(self.motor_id)
 
 if __name__ == "__main__":
     main = DynTestApp()
