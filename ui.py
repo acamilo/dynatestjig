@@ -121,7 +121,7 @@ class DynTestApp:
             self.ser.write(b'y')
             self.ser.flush()
         time.sleep(10)
-        response = self.ser.read(200)
+        response = self.ser.read(1000)
         print(response)
         if b'ok' in response:
             self.stack.set_visible_child_name("assign-ok-menu")
