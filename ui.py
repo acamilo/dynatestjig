@@ -64,7 +64,9 @@ class DynTestApp:
             self.ser.timeout = 1.0
             self.ser.write(b'\r')
             self.ser.flush()
-            response = self.ser.read(100)
+            self.ser.write(b'\r')
+            self.ser.flush()
+            response = self.ser.read(1000
 
             if b'right motor' in response:
                 print("Programmer OK")
