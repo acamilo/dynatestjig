@@ -159,8 +159,9 @@ class DynTestApp:
     def on_clicked(self, widget):
         print(widget)
 
-    def focus_test(self,widget):
+    def focus_test(self,widget,foo):
         print(widget)
+        print(foo)
 
 if __name__ == "__main__":
     main = DynTestApp()
